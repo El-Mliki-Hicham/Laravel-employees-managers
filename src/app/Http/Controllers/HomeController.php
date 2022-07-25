@@ -57,21 +57,14 @@ class HomeController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email'],
-            'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:1024'],
+           
         ]);
 
         $user = User::find($id);
         $user->name = $request->get('name');
         $user->email = $request->get('email');
 
-        if ($request->file('avatar')) {
-            $avatar = $request->file('avatar');
-            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
-            $avatarPath = public_path('/images/');
-            $avatar->move($avatarPath, $avatarName);
-            $user->avatar =  $avatarName;
-        }
-
+      
         $user->update();
         if ($user) {
             Session::flash('message', 'User Details Updated successfully!');
@@ -122,5 +115,13 @@ class HomeController extends Controller
                 ], 200); // Status code here
             }
         }
+    }
+
+
+
+        function logout(){
+            auth::logout() ;
+            return redirect('login');
+
     }
 }

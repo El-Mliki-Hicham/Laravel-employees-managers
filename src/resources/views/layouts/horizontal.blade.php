@@ -260,8 +260,7 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="@if (Auth::user()->avatar != ''){{ URL::asset('images/'. Auth::user()->avatar) }}@else{{ URL::asset('assets/images/users/avatar-1.png') }}@endif"
-                        alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user"  alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1 fw-medium">{{Auth::user()->name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
@@ -270,10 +269,10 @@
                     <a class="dropdown-item" href="apps-contacts-profile "><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
                     <a class="dropdown-item" href="auth-lock-screen "><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="javascript:void();" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">@lang('translation.Logout')</span></a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <a class="dropdown-item "  href="{{ route('Logout') }}" ></i> <span key="t-logout">@lang('Logout')</span></a>
+                    {{-- <form id="logout-form" action="{{ route('Logout') }}" method="POST" style="display: none;">
                         @csrf
-                    </form>
+                    </form> --}}
                 </div>
             </div>
 
@@ -504,7 +503,7 @@
                                     <a href="auth-register " class="dropdown-item" data-key="t-register">@lang('translation.Register')</a>
                                     <a href="auth-recoverpw " class="dropdown-item" data-key="t-recover-password">@lang('translation.Recover_Password')</a>
                                     <a href="auth-lock-screen " class="dropdown-item" data-key="t-lock-screen">@lang('translation.Lock_Screen')</a>
-                                    <a href="auth-logout " class="dropdown-item" data-key="t-logout">@lang('translation.Logout')</a>
+                                    <a href="auth-logout " class="dropdown-item" data-key="t-logout">@lang('Logout')</a>
                                     <a href="auth-confirm-mail " class="dropdown-item" data-key="t-confirm-mail">@lang('translation.Confirm_Mail')</a>
                                     <a href="auth-email-verification " class="dropdown-item" data-key="t-email-verification">@lang('translation.Email_verification')</a>
                                     <a href="auth-two-step-verification " class="dropdown-item" data-key="t-two-step-verification">@lang('translation.Two_step_verification')</a>

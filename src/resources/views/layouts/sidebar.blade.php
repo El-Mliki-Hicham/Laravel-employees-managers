@@ -56,7 +56,7 @@
                         <li><a href="auth-register" data-key="t-register">@lang('translation.Register')</a></li>
                         <li><a href="auth-recoverpw" data-key="t-recover-password">@lang('translation.Recover_Password')</a></li>
                         <li><a href="auth-lock-screen" data-key="t-lock-screen">@lang('translation.Lock_Screen')</a></li>
-                        <li><a href="auth-logout" data-key="t-logout">@lang('translation.Logout')</a></li>
+                        <li><a href="auth-logout" data-key="t-logout">@lang('Logout')</a></li>
                         <li><a href="auth-confirm-mail" data-key="t-confirm-mail">@lang('translation.Confirm_Mail')</a></li>
                         <li><a href="auth-email-verification" data-key="t-email-verification">@lang('translation.Email_verification')</a></li>
                         <li><a href="auth-two-step-verification" data-key="t-two-step-verification">@lang('translation.Two_step_verification')</a></li>

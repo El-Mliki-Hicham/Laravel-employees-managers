@@ -67,17 +67,7 @@
                                             <i data-feather="lock"></i>
                                         </div>
                                     </div>
-                                    <div class="form-floating form-floating-custom mb-4">
-                                        <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar"  id="input-avatar" required>
-                                        @error('avatar')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                        <div class="form-floating-icon">
-                                            <i data-feather="file"></i>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="mb-4">
                                         <p class="mb-0">By registering you agree to the Dason <a href="#" class="text-primary">Terms of Use</a></p>
                                     </div>
