@@ -17,4 +17,8 @@ use App\Http\Controllers\EmployeeController;
 //     return view('tasks-create');
 // });
 
-route::resource("employee",EmployeeController::class);
+route::resource("employee",EmployeeController::class)->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
