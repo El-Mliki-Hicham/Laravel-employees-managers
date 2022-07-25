@@ -30,7 +30,7 @@ function getChartColorsArray(chartId) {
 
 var barchartColors = getChartColorsArray("#mini-chart1");
 var options = {
-  series: [60, 40],
+  series: [100, 40],
   chart: {
     type: 'donut',
     height: 110

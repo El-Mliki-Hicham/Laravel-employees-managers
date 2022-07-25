@@ -14,13 +14,14 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-
-        $Departements = Departement::all();
+        $TotalDepartements = Departement::all()->count();
+        $TotalEmployees = employee::count();        
+        $TotalSalaire = employee::select('salaire')->sum("salaire");        
         $employee = employee::select("*")
         ->join("Departements","employees.Departement",'=',"Departements.id_departement")
         ->get();
         
-        return view('index',compact('employee'));
+        return view('index',compact('employee',"TotalEmployees","TotalSalaire","TotalDepartements"));
     }
 
     /**
