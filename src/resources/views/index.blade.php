@@ -12,6 +12,9 @@
 @slot('title') Welcome ! @endslot
 @endcomponent
 
+
+
+
 <div class="row">
     <div class="col-xl-3 col-md-6">
         <!-- card -->
@@ -71,12 +74,7 @@
     </div><!-- end col -->
 
 </div><!-- end row-->
-/
-
-
           
-
-   
     <!-- end col -->
 </div>
 <!-- end row-->
@@ -90,7 +88,13 @@
                   <a href="{{route('employee.create')}}">  <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Ajouter">Ajouter</button>
                   </a>
                 </p>
-                <input type="search" value="">
+                
+            
+                    <input type="text" style="max-width: 200px"  class="form-control" name="live_search" id="live_search" autocomplete="off"
+                        placeholder="Search ...">
+                        <br>
+                    <div id="search_result"></div>
+                
             </div>
 
             <div class="card-body">
@@ -166,3 +170,34 @@
 <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js') }}"></script>
 <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
 @endsection
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#live_search").keyup(function () {
+            var query = $(this).val();
+            if (query != "") {
+                $.ajax({
+                    url: 'confog.php',
+                    method: 'POST',
+                    data: {
+                        query: query
+                    },
+                    success: function (data) {
+                        $('#search_result').html(data);
+                        $('#search_result').css('display', 'block');
+                        $("#live_search").focusout(function () {
+                            $('#search_result').css('display', 'none');
+                        });
+                        $("#live_search").focusin(function () {
+                            $('#search_result').css('display', 'block');
+                        });
+                    }
+                });
+            } else {
+                $('#search_result').css('display', 'none');
+            }
+        });
+    });
+</script>
