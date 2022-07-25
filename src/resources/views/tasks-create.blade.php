@@ -18,56 +18,46 @@
                     <div data-repeater-list="outer-group" class="outer">
                         <div data-repeater-item class="outer">
                             <div class="form-group row mb-4">
-                                <label for="taskname" class="col-form-label col-lg-2">Task Name</label>
+                                <label for="taskname" class="col-form-label col-lg-2">Nom</label>
                                 <div class="col-lg-10">
-                                    <input id="taskname" name="taskname" type="text" class="form-control" placeholder="Enter Task Name...">
+                                    <input id="taskname" name="Nom" type="text" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
-                                <label class="col-form-label col-lg-2">Task Description</label>
+                                <label for="taskname" class="col-form-label col-lg-2">Prenom</label>
                                 <div class="col-lg-10">
-                                    <textarea id="" name="area"></textarea>
+                                    <input id="taskname" name="Prenom" type="text" class="form-control" placeholder="">
                                 </div>
-                            </div>
-
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label col-lg-2">Task Date</label>
-                                <div class="col-lg-10">
-                                    <div class="input-daterange input-group" data-provide="datepicker">
-                                        <input type="text" class="form-control" placeholder="Start Date" name="start" />
-                                        <input type="text" class="form-control" placeholder="End Date" name="end" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="inner-repeater mb-4">
-                                <div data-repeater-list="inner-group" class="inner form-group mb-0 row">
-                                    <label class="col-form-label col-lg-2">Add Team Member</label>
-                                    <div  data-repeater-item class="inner col-lg-10 ms-md-auto">
-                                        <div class="mb-3 row align-items-center">
-                                            <div class="col-md-7">
-                                                <input type="text" class="inner form-control" placeholder="Enter Name..."/>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="mt-4 mt-md-0">
-                                                    <input class="form-control" type="file">
-                                                </div>
-                                            </div>
-                                           
-
-                                        </div>
-                                    </div>
-                                </div>
-                               
                             </div>
                             <div class="form-group row mb-4">
-                                <label for="taskbudget" class="col-form-label col-lg-2">Budget</label>
+                                <label for="taskname" class="col-form-label col-lg-2">Salaire</label>
                                 <div class="col-lg-10">
-                                    <input id="taskbudget" name="taskbudget" type="text" placeholder="Enter Task Budget..." class="form-control">
+                                    <input id="taskname" name="Salaire" type="text" class="form-control" placeholder="">
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group row mb-4">
+                                <label for="taskname" class="col-form-label col-lg-2">Date de naissance</label>
+                                <div class="col-lg-10">
+                                    <input id="taskname" name="Date" type="Date" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-4">
+                                <label for="taskname" class="col-form-label col-lg-2">Photo</label>
+                                <div class="col-lg-10">
+                                    <input id="taskname" name="image" type="file" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                            
+                            
+                         
+                            
+                        
                     </div>
+                </div>
+                
+                                                          
+                                                           
                 </form>
                 <div class="row justify-content-end">
                     <div class="col-lg-10">
