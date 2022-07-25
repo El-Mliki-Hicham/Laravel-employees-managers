@@ -13,8 +13,8 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('tasks-create', function () {
-    return view('tasks-create');
-});
+// Route::get('tasks-create', function () {
+//     return view('tasks-create');
+// });
 
 route::resource("employee",EmployeeController::class);

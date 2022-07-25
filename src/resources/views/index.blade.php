@@ -305,7 +305,7 @@
             <div class="card-header">
                 <h4 class="card-title"> table</h4>
                 <p class="card-title-desc">
-                  <a href="tasks-create">  <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Ajouter">Ajouter</button>
+                  <a href="{{route('employee.create')}}">  <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Ajouter">Ajouter</button>
                   </a>
                 </p>
             </div>
@@ -342,8 +342,11 @@
                                            </a>
                                         </li>
                                         <li class="list-inline-item">
-                                          <a href="{{route('employee.destroy',$value->id_employee)}}">  <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                                          </a>
+                                            <form action="{{route('employee.destroy',$value->id_employee)}}" method="POST">
+                                                @csrf
+                                                @method("DELETE")
+                                           <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                        </form>
                                         </li>
                                     </ul></td>
                                 </tr>

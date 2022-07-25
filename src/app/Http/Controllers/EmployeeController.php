@@ -14,6 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+
+        $Departements = Departement::all();
         $employee = employee::select("*")
         ->join("Departements","employees.Departement",'=',"Departements.id_departement")
         ->get();
@@ -28,7 +30,13 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+       
+        $Departements = Departement::all();
+        $employee = employee::select("*")
+        ->join("Departements","employees.Departement",'=',"Departements.id_departement")
+        ->get();
+        
+        return view('insert-employee',compact('employee','Departements'));
     }
 
     /**
@@ -39,7 +47,42 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nom = $request->input('Nom');
+        $Prenom = $request->input('Prenom');
+        $Salaire = $request->input('Salaire');
+        $Date_de_naissance = $request->input('Date');
+        
+        $Departement = $request->input('Departement');
+      
+      
+        if($request->hasfile('image'))
+         {
+             $file = $request->file('image');
+             $extenstion = $file->getClientOriginalExtension();
+             $filename = time().'.'.$extenstion;
+             $file->move('assets/img/employee', $filename);
+            $photo = $filename;
+         }
+         else{
+            $photo = null;
+         }
+       
+        
+    
+ 
+    $employee = employee::create([
+    "Nom" => $nom,
+    "Prenom" => $Prenom,
+    "Date_de_naissance" =>$Date_de_naissance,
+    "salaire" => $Salaire,
+    "Departement" =>$Departement,
+    "photo" => $photo
+    ]);
+    
+       if($employee){
+        return redirect('employee');
+        
+       }
     }
 
     /**
@@ -125,6 +168,10 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = employee::where('id_employee',$id)->delete();
+
+        if ($delete) {
+          return  redirect("employee");
+        }
     }
 }
