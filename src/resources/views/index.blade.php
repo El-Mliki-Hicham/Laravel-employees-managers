@@ -89,12 +89,12 @@
                   </a>
                 </p>
                 
-            
+            <div class="" style="margin-top:12px">
                     <input type="text" style="max-width: 200px"  class="form-control" name="live_search" id="live_search" autocomplete="off"
                         placeholder="Search ...">
                         <br>
                     <div id="search_result"></div>
-                
+                </div>
             </div>
 
             <div class="card-body">
