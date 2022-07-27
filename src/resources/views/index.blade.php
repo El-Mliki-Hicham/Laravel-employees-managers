@@ -3,7 +3,7 @@
 @section('css')
 
 <link href="{{ URL::asset('/assets/libs/admin-resources/admin-resources.min.css') }}" rel="stylesheet">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 @endsection
 @section('content')
 
@@ -90,7 +90,7 @@
                 </p>
                 
             <div class="" style="margin-top:12px">
-                    <input type="text" style="max-width: 200px"  class="form-control" name="live_search" id="live_search" autocomplete="off"
+                    <input type="search" style="max-width: 200px"  class="form-control"  id="search" 
                         placeholder="Search ...">
                         <br>
                     <div id="search_result"></div>
@@ -152,7 +152,7 @@
         <!-- end card -->
     </div>
     <!-- end col -->
-
+{{$output}}
                  
             </div>
         </div>
@@ -160,6 +160,26 @@
     </div>
     <!-- end col -->
 </div><!-- end row -->
+
+<script type="text/javascript">
+
+    $("#search").on("keyup",function(){
+    $value=$(this).val();
+    
+    $.ajax({
+
+       type:'get',
+       url:'{{URL::to('searcsh')}}',
+       data:{'search':$value},
+       success:function(data){
+        console.log(data);
+    $("#search_result").html(data);
+       } 
+    })
+    
+    })
+    
+    </script>
 @endsection
 @section('script')
 <!-- apexcharts -->
@@ -171,33 +191,3 @@
 <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
 @endsection
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#live_search").keyup(function () {
-            var query = $(this).val();
-            if (query != "") {
-                $.ajax({
-                    url: 'confog.php',
-                    method: 'POST',
-                    data: {
-                        query: query
-                    },
-                    success: function (data) {
-                        $('#search_result').html(data);
-                        $('#search_result').css('display', 'block');
-                        $("#live_search").focusout(function () {
-                            $('#search_result').css('display', 'none');
-                        });
-                        $("#live_search").focusin(function () {
-                            $('#search_result').css('display', 'block');
-                        });
-                    }
-                });
-            } else {
-                $('#search_result').css('display', 'none');
-            }
-        });
-    });
-</script>

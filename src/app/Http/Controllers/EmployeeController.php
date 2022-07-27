@@ -12,8 +12,25 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->search) {
+            
+        
+         $employees = employee::where('Nom','LIKE','%'.$request->search.'%')->get();
+        
+         foreach($employees as $value){
+        $output.=
+        '<tr>
+        </td> '.$value->Nom.'</td>
+
+        </tr>';
+         }
+        }else {
+        $output = "hello";
+        }
+
         $TotalDepartements = Departement::all()->count();
         $TotalEmployees = employee::count();        
         $TotalSalaire = employee::select('salaire')->sum("salaire");        
@@ -21,7 +38,7 @@ class EmployeeController extends Controller
         ->join("Departements","employees.Departement",'=',"Departements.id_departement")
         ->get();
         
-        return view('index',compact('employee',"TotalEmployees","TotalSalaire","TotalDepartements"));
+        return view('index',compact('employee',"TotalEmployees","TotalSalaire","TotalDepartements","output"));
     }
 
     /**
